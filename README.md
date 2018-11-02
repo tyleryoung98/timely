@@ -11,8 +11,6 @@ Copy and paste this command to clone this repo there(CTRL+V won't work, right-cl
 >git clone https://github.com/tyleryoung98/timely.git
 ---
 ### Enter the following commands to prep the environment in Git Bash:
->node init
->
 >npm install mongoose --save
 >
 >npm install express --save
