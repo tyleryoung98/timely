@@ -13,7 +13,7 @@ module.exports = function(){
     console.log(req.body);
     const { email, password } = req.body;
     db.login(email, password).then(()=>{
-      res.send('Logged in successfully')
+      res.redirect('./assignments.html')
     });
   })
   return router;
