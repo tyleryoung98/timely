@@ -8,12 +8,13 @@ module.exports = function(){
     db.signup(email, first_name, last_name, password).then(()=>{
       res.send('Account Created')
     });
-  }),
-  router.post('/assignments.html', function(req, res){
+  })
+
+  router.post('/login', function(req, res){
     console.log(req.body);
-    const { email, password } = req.body;
+    const{ email, password} = req.body;
     db.login(email, password).then(()=>{
-      res.redirect('./assignments.html')
+      res.send('Login Successful')
     });
   })
   return router;
