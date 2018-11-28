@@ -7,17 +7,17 @@ const mongoose = require('mongoose');
 //link to .env
 if(process.env.NODE_ENV != 'production'){
   require('dotenv').config();
-  console.log('did it work');
 }
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static('public/css'));
+app.use(express.static('public'));
 app.use('/', routes());
 
+//mongoose configuration
+mongoose.set('useCreateIndex', true);
 
 mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true }).then(() => {
-  console.log('connected to mongodb');
+  console.log('Connected to mongodb');
+  app.listen(3000, () => console.log('App listening'));
 });
-//put this last
-app.listen(3000, () => console.log('App listening'));
