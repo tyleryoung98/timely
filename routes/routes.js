@@ -3,6 +3,8 @@ const Mongo = require('../mongo.js');
 const bcrypt = require('bcrypt');
 const db = new Mongo();
 const path = require('path');
+// const Mailer = require('../mailing.js');
+// const mailer = new Mailer();
 
 function isAuthenticated(req, res, next) {
 	if (req.isAuthenticated())
@@ -38,6 +40,11 @@ module.exports = function(passport) {
 			res.json(profile);
 		});
 	});
+
+	// router.get('/test-email', isAuthenticated, function(req, res) {
+	// 	mailer.accountCreationMail(req.user.email);
+	// 	res.send('sent email to ' + req.user.email + '!');
+	// });
 
   return router;
 }
