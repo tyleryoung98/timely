@@ -38,6 +38,12 @@ module.exports = function(passport) {
 			res.json(users);
 		});
 	});
+	
+	router.get('/profile',function(req, res) {
+		db.getProfile().then(function(profile) {
+			res.json(profile);
+		});
+	});
 
   return router;
 }
