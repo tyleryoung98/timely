@@ -13,4 +13,13 @@ module.exports = class Mongo {
     });
   }
 
+  getUsers(){
+    return new Promise((resolve, reject) => {
+      User.find({}, function(err, users){
+        if(err) reject();
+        resolve(users);
+      });
+    })
+  }
+
 }
