@@ -3,6 +3,8 @@ const Mongo = require('../mongo.js');
 const bcrypt = require('bcrypt');
 const db = new Mongo();
 const path = require('path');
+// const Mailer = require('../mailing.js');
+// const mailer = new Mailer();
 
 function isAuthenticated(req, res, next) {
 	if (req.isAuthenticated())
@@ -33,11 +35,24 @@ module.exports = function(passport) {
     });
   });
 
-	router.get('/users', function(req, res){
-		db.getUsers().then(function(users){
-			res.json(users);
+	router.post('./addAssignment', function(req, res){
+		console.log(req.body);
+		const {date, remindMe} = req.body;
+		db.addAssignment(req.user.email, date, remindMe).then(()=>{
+			res.redirect('/app/assignments.html');
+		})
+	})
+
+	router.get('/profile', function(req, res){
+		db.getProfile(req.user.email).then(function(profile){
+			res.json(profile);
 		});
 	});
+
+	// router.get('/test-email', isAuthenticated, function(req, res) {
+	// 	mailer.accountCreationMail(req.user.email);
+	// 	res.send('sent email to ' + req.user.email + '!');
+	// });
 
   return router;
 }
