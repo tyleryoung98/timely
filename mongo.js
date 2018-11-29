@@ -21,5 +21,14 @@ module.exports = class Mongo {
       });
     })
   }
+  
+  module.exports = class Mongo {
+  async assignments(name,date,reminder) {
+    return new Promise((resolve, reject) => {
+      User.create({email, first_name, last_name, password}).then(() =>{
+        resolve();
+      });
+    });
+  }
 
 }
