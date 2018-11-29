@@ -35,6 +35,14 @@ module.exports = function(passport) {
     });
   });
 
+	router.post('./addAssignment', function(req, res){
+		console.log(req.body);
+		const {date, remindMe} = req.body;
+		db.addAssignment(req.user.email, date, remindMe).then(()=>{
+			res.redirect('/app/assignments.html');
+		})
+	})
+
 	router.get('/profile', function(req, res){
 		db.getProfile(req.user.email).then(function(profile){
 			res.json(profile);

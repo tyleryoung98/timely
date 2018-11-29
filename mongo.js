@@ -19,6 +19,19 @@ module.exports = class Mongo {
     });
   }
 
+  addAssignment(email, name, date, remindMe){
+    return new Promise((resolve, reject)=>{
+      User.findOne({email: email}, function(err, user){
+        if(err) reject();
+        else {
+          user.assignments.add({name: name,
+            date: date, remindMe: remindMe});
+          resolve();
+        }
+      });
+    });
+  }
+
   getProfile(email){
     return new Promise((resolve, reject) => {
       User.findOne({email: email}, function(err, profile){

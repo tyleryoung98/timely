@@ -11,6 +11,11 @@ let userSchema = new Schema({
   classes: [{
     name: {type: String, required: true, trim: true},
     date: {type: Date, required: true}
+  }],
+  assignments: [{
+    name: {type: String, required: true, trim: true},
+    date: {type: Date, required: true},
+    remindMe: {type:Date}
   }]
   //school: {type: String, trim: true},
   //major: {type:String, trim: true}
