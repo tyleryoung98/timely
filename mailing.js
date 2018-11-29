@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 module.exports = class Mailer {
   constructor() {
     this.transporter = nodemailer.createTransport({
-        service: 'Gmail', // true for 465, false for other ports
+        service: 'Gmail',
         auth: {
             user: "timelytu@gmail.com", // generated ethereal user
             pass: "TimelyTest1031" // generated ethereal password

@@ -55,7 +55,7 @@ module.exports = function(passport) {
 	// router.get('/test-email', isAuthenticated, function(req, res) {
 	// 	mailer.accountCreationMail(req.user.email);
 	// 	res.send('sent email to ' + req.user.email + '!');
-	// });
+	// });  
 
   return router;
 }
