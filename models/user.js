@@ -8,7 +8,7 @@ let userSchema = new Schema({
   first_name: {type: String, required: true, trim: true},
   last_name: {type: String, required: true, trim: true},
   password: {type: String, required: true},
-  classes: [{
+  sections: [{
     name: {type: String, required: true, trim: true},
     date: {type: Date, required: true}
   }],

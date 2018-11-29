@@ -4,7 +4,12 @@
 <head>
 	<title> Timely </title>
 	<link rel="stylesheet" href ="../css/timely.css" type="text/css">
-	    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script src="../js/assignments.js"></script>
 	<style>
 		.home {
 			width:8%;
@@ -76,7 +81,7 @@
 	</div>
 
 	<div class="logout">
-		<a href="index.html" style="color: white; text-decoration: none"> Logout
+		<a href="../logout" style="color: white; text-decoration: none"> Logout
 	</div>
 
 	<div style="text-align: center; margin-top: 175px">
@@ -100,6 +105,9 @@
 		<label for="remindMe"> <b class="colorWhite"> Remind me at this time </b> </label>
 		<input type="time" placeholder="remindMe" name="remindMe" required>
     		<button type="submit"><b class="colorWhite">Add Assignment</b></button>
+	</div>
+	<div>
+		<ul id='assignments' style="color: white"> </ul>
 	</div>
 	</form>
 </body>

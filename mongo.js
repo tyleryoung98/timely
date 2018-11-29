@@ -20,14 +20,40 @@ module.exports = class Mongo {
   }
 
   addAssignment(email, name, date, remindMe){
+    let assign = {name: name, date: date, remindMe: remindMe};
     return new Promise((resolve, reject) => {
-      User.findOne({email: email}, function(err, user){
-        if(err) reject();
-        else {
-          user.assignments.push({name: name, date: date, remindMe: remindMe});
-          user.save();
-          resolve();
-        }
+      User.findOneAndUpdate({email: email}, {$push:{assignments: assign}},
+        function(err, success){
+          if(err){
+            console.log(err);
+            reject();
+          }
+          else{
+            resolve();
+          }
+        //if(err) reject();
+        //else {
+        //  user.assignments.push({name: name, date: date, remindMe: remindMe});
+        //  user.save(done);
+        //  resolve();
+
+      });
+    });
+  }
+
+  addClass(email, name, date){
+    let section = {name: name, date: date};
+    console.log(section);
+    return new Promise((resolve, reject) => {
+      User.findOneAndUpdate({email: email}, {$push:{sections: section}},
+        function(err, success){
+          if(err){
+            console.log(err);
+            reject();
+          }
+          else{
+            resolve();
+          }
       });
     });
   }

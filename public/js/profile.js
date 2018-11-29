@@ -4,9 +4,9 @@ $(document).ready(function(){
     success: function(user){
       let userProfile = $('#userProfile');
 
-      $( "<p>Email: "+user.email+
-        " \nFirst Name:"+user.first_name+
-        " Last Name:"+user.last_name+
+      $( "<p style=\"color:white\">Email: "+user.email+
+        "<br>First Name: "+user.first_name+
+        "<br>Last Name: "+user.last_name+
         "</p>" ).appendTo(userProfile);
     }
   })

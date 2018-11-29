@@ -37,9 +37,18 @@ module.exports = function(passport) {
 
 	router.post('/assignments', function(req, res){
 		console.log(req.body);
-		const {date, remindMe} = req.body;
-		db.addAssignment(req.user.email, date, date + ' ' + remindMe).then(() => {
+		const {name, date, remindMe} = req.body;
+		db.addAssignment(req.user.email, name, date, date + ' ' + remindMe).then(() => {
 			res.redirect('/app/assignments.html');
+		});
+	});
+
+	router.post('/classes', function(req, res){
+		console.log(req.body);
+		const name = req.body.name;
+		const date = req.body.date;
+		db.addClass(req.user.email, name, date).then(() => {
+			res.redirect('/app/classes.html');
 		});
 	});
 
@@ -49,6 +58,16 @@ module.exports = function(passport) {
 		});
 	});
 
+	router.get('/assignment', function(req, res){
+		db.getProfile(req.user.email).then(function(profile){
+			res.json(profile);
+		});
+	});
+	router.get('/classes', function(req, res){
+		db.getProfile(req.user.email).then(function(profile){
+			res.json(profile);
+		});
+	});
 	// router.get('/test-email', isAuthenticated, function(req, res) {
 	// 	mailer.accountCreationMail(req.user.email);
 	// 	res.send('sent email to ' + req.user.email + '!');

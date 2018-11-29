@@ -4,8 +4,12 @@
 <head>
 	<title> Timely </title>
 	<link rel = "stylesheet" href = "../css/timely.css" type="text/css">
-	<script src="javascript.js"></script>
-	    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script src="../js/classes.js"></script>
 	<style>
 		.home {
 			width:8%;
@@ -73,12 +77,12 @@
 <body>
 	<div class = "home">
 		<a href = "index.html">
-		<img src = "towson.png" style = "width:170px; height:150px">
+		<img src = "../img/towson.png" style = "width:170px; height:150px">
 		</a>
 	</div>
 
 	<div class = "logout">
-		<a href="index.html" style = "color: white; text-decoration: none"> Logout
+		<a href="../logout" style = "color: white; text-decoration: none"> Logout
 	</div>
 
 	<div style = "text-align: center; margin-top: 175px">
@@ -91,21 +95,23 @@
  <a href = "about.html"> <button style="width:25%">About</button></a>
 
 	</div>
-
+	<form action="/classes" method="POST">
 	<div>
 		<h1 style = "color: white"> Add Class Here </h1>
 
-		<label for="class"> <b class="colorWhite"> Name </b> </label>
-		<input type="text" placeholder="Name" name="class" required>
+		<label for="name"> <b class="colorWhite"> Name </b> </label>
+		<input type="text" placeholder="name" name="name" required>
 
-		<label for="days"> <b class="colorWhite"> Day(s) </b> </label>
-		<input type="text" placeholder="days" name="days" required>
+		<label for="date"> <b class="colorWhite"> Date </b> </label>
+		<input type="date" placeholder="date" name="date" required>
 
-		<label for="startTime"> <b class="colorWhite"> Start Time </b> </label>
-		<input type="time" placeholder="startTime" name="startTime" required>
+
 		<button type="submit"> <b class="colorWhite"> Add Class </b> </button>
 
 	</div>
-
+	<div>
+		<ul id='classes' style="color: white"> </ul>
+	</div>
+	</form>
 </body>
 </html>
