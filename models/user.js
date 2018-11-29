@@ -8,8 +8,12 @@ let userSchema = new Schema({
   first_name: {type: String, required: true, trim: true},
   last_name: {type: String, required: true, trim: true},
   password: {type: String, required: true},
-  school: {type: String, trim: true},
-  major: {type:String, trim: true}
+  classes: [{
+    name: {type: String, required: true, trim: true},
+    date: {type: Date, required: true}
+  }]
+  //school: {type: String, trim: true},
+  //major: {type:String, trim: true}
 });
 
 userSchema.pre('save', function(next){

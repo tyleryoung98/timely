@@ -1,11 +1,13 @@
 $(document).ready(function(){
-  $.ajax('/users', {
+  $.ajax('/profile', {
     method: 'GET',
-    success: function(users){
-      let userList = $('#userList');
-      for (let user of users) {
-        $( "<p>Email : "+user.email+"</p>" ).appendTo(userList);
-      }
+    success: function(user){
+      let userProfile = $('#userProfile');
+
+      $( "<p>Email: "+user.email+
+        " \nFirst Name:"+user.first_name+
+        " Last Name:"+user.last_name+
+        "</p>" ).appendTo(userProfile);
     }
   })
 })

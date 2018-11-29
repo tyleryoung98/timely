@@ -33,9 +33,9 @@ module.exports = function(passport) {
     });
   });
 
-	router.get('/users', function(req, res){
-		db.getUsers().then(function(users){
-			res.json(users);
+	router.get('/profile', function(req, res){
+		db.getProfile(req.user.email).then(function(profile){
+			res.json(profile);
 		});
 	});
 
