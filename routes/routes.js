@@ -33,5 +33,11 @@ module.exports = function(passport) {
     });
   });
 
+	router.get('/users', function(req, res){
+		db.getUsers().then(function(users){
+			res.json(users);
+		});
+	});
+
   return router;
 }
