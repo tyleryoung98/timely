@@ -89,7 +89,7 @@
  <a href = "about.html"> <button style="width:25%">About</button></a>
 
 	</div>
-
+	<form action="/addAssignment" method="POST">
 	<div>
 		<label for="name"><b class="colorWhite">Assignment Name</b></label>
     		<input type="text" placeholder="Name" name="name" required>
@@ -97,10 +97,10 @@
     		<label for="date"><b class="colorWhite">Due Date </b></label>
     		<input type="date" placeholder="Date" name="date" required>
 
-		<label for="remindMe> <b class="colorWhite"> Remind me at this time </b> </label>
+		<label for="remindMe"> <b class="colorWhite"> Remind me at this time </b> </label>
 		<input type="time" placeholder="remindMe" name="remindMe" required>
-    		<button type="submit"><b class="colorWhite">Add Assignment</b></button>
+    		<a href="assignments.html"><button type="submit"><b class="colorWhite">Add Assignment</b></button></a>
 	</div>
-
+	</form>
 </body>
 </html>

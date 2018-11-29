@@ -24,6 +24,9 @@ module.exports = class Mongo {
       User.findOne({email: email}, function(err, user){
         if(err) reject();
         else {
+          console.out(typeof name);
+          console.out(typeof date);
+          console.out(typeof remindMe);
           user.assignments.add({name: name,
             date: date, remindMe: remindMe});
           resolve();
