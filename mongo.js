@@ -20,15 +20,12 @@ module.exports = class Mongo {
   }
 
   addAssignment(email, name, date, remindMe){
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
       User.findOne({email: email}, function(err, user){
         if(err) reject();
         else {
-          console.out(typeof name);
-          console.out(typeof date);
-          console.out(typeof remindMe);
-          user.assignments.add({name: name,
-            date: date, remindMe: remindMe});
+          user.assignments.push({name: name, date: date, remindMe: remindMe});
+          user.save();
           resolve();
         }
       });

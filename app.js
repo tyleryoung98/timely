@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes/routes');
+const baseRoutes = require('./routes/index');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname + '/public'));
 
 //configure passport first
-app.use('/', routes(passport));
+app.use('/', baseRoutes(passport));
 
 //mongoose configuration
 mongoose.set('useCreateIndex', true);
